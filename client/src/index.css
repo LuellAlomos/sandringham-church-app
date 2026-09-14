@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green: #2D5016;
+  --green-light: #E8F0DC;
+  --green-mid: #4A7A24;
+  --gold: #C9962A;
+  --gold-light: #F5E6C0;
+  --gold-dark: #8B6518;
+  --grey-bg: #F0F2F5;
+  --grey-border: #DADDE1;
+  --grey-text: #65676B;
+  --dark: #1C1E21;
+  --white: #FFFFFF;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--grey-bg);
+  color: var(--dark);
+  min-height: 100vh;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: var(--green);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--green);
+}
+
+.btn-green {
+  background: var(--green);
+  color: var(--white);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--green);
+  color: var(--green);
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 8px;
+  border: 0.5px solid var(--grey-border);
+  overflow: hidden;
+}
+
+.card-header {
+  background: var(--green);
+  padding: 10px 14px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--dark);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--grey-border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.error { color: #dc3545; font-size: 13px; margin-top: 4px; }
+.success { color: var(--green-mid); font-size: 13px; margin-top: 4px; }
+
+.page-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr 220px;
+  gap: 12px;
+  padding: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-content {
+  padding: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+}
