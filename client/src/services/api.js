@@ -1,24 +1,31 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost5000/api:',
-    withCredentials: true
+  baseURL: 'https://sandringham-church-app.onrender.com/api',
+  withCredentials: true
 });
 
 let accessToken = null;
 
 export const setAccessToken = (token) => {
-    accessToken = token;
+  accessToken = token;
 };
 
+api.interceptors.request.use((config) => {
+  if (accessToken) {
+    config.headers.Authorization = `Bearer ${accessToken}`;
+  }
+  return config;
+});
+
 api.interceptors.response.use(
-    (response) => response,
-    async (error) => {
-        const orginal = error.config;
-        if(error.response?.status === 401 && !orginal._retry) {
-            orginal._retry = true;
-            try {
-                const res = await axios.post('http://localhost:5000/api/auth/refresh', {}, { withCredentials: true });
+  (response) => response,
+  async (error) => {
+    const original = error.config;
+    if (error.response?.status === 401 && !original._retry) {
+      original._retry = true;
+      try {
+        const res = await axios.post('https://sandringham-church-app.onrender.com/api/auth/refresh', {}, { withCredentials: true });
         setAccessToken(res.data.accessToken);
         original.headers.Authorization = `Bearer ${res.data.accessToken}`;
         return api(original);
