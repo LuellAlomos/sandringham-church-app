@@ -211,5 +211,39 @@ function Home() {
     </div>
   )
 }
+{/* Google Maps Section */}
+<div style={{ padding: '48px 20px', background: 'var(--grey-bg)' }}>
+  <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+    <h2 style={{ textAlign: 'center', color: 'var(--green)', fontSize: '26px', marginBottom: '8px' }}>Find Us</h2>
+    <p style={{ textAlign: 'center', color: 'var(--grey-text)', fontSize: '14px', marginBottom: '24px' }}>
+      📍 Sandringham, Auckland, New Zealand
+    </p>
+    <div style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 8px 32px rgba(45,80,22,0.15)', border: '3px solid var(--gold)' }}>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.0!2d174.7390!3d-36.8850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSandringham%2C+Auckland%2C+New+Zealand!5e0!3m2!1sen!2snz!4v1234567890"
+        width="100%"
+        height="400"
+        style={{ border: 0, display: 'block' }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Sandringham Presbyterian Church Location"
+      />
+    </div>
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '16px', flexWrap: 'wrap' }}>
+      <div style={{ background: 'white', padding: '12px 20px', borderRadius: '8px', fontSize: '13px', color: 'var(--grey-text)', border: '0.5px solid var(--grey-border)' }}>
+        📍 Sandringham, Auckland
+      </div>
+      <div style={{ background: 'white', padding: '12px 20px', borderRadius: '8px', fontSize: '13px', color: 'var(--grey-text)', border: '0.5px solid var(--grey-border)' }}>
+        🕐 Sundays at 10:00am
+      </div>
+      <div style={{ background: 'white', padding: '12px 20px', borderRadius: '8px', fontSize: '13px', color: 'var(--grey-text)', border: '0.5px solid var(--grey-border)' }}>
+        ✉ john.aholima@hotmail.com
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 export default Home

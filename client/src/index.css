@@ -138,3 +138,38 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* Button hover effects */
+.btn {
+  transition: all 0.2s ease;
+  transform: translateY(0);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  opacity: 0.92;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-gold:hover {
+  background: #d4a030;
+  box-shadow: 0 4px 16px rgba(201,150,42,0.4);
+}
+
+.btn-green:hover {
+  background: #3d6b20;
+  box-shadow: 0 4px 16px rgba(45,80,22,0.4);
+}
+
+.btn-outline:hover {
+  background: var(--green);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+  box-shadow: 0 4px 12px rgba(220,53,69,0.4);
+}
