@@ -21,7 +21,7 @@ function Home() {
           Fakaalofa atu
         </h1>
         <h2 style={{ color: 'var(--gold-light)', fontSize: '22px', fontWeight: 'normal', marginBottom: '8px' }}>
-          Welcome to Sandringham Presbyterian Church
+          Welcome to Sandringham Nuie Presbyterian Church
         </h2>
         <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '15px', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px', lineHeight: 1.7 }}>
           A community of Niuean faith in the heart of Auckland.<br />Ko e lotu fakalelei — All are welcome here.
