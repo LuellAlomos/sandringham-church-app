@@ -15,23 +15,38 @@ import Navbar from './components/Navbar'
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth()
   if (loading) return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column', gap: '16px' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', flexDirection: 'column', gap: '16px' }}>
       <div style={{ fontSize: '48px' }}>✝</div>
       <p style={{ color: 'var(--green)', fontSize: '16px' }}>Loading...</p>
     </div>
   )
-  if (!user) return <Navigate to="/login" />
+  if (!user) return <Navigate to="/login" replace />
   return children
 }
 
 const AdminRoute = ({ children }) => {
   const { user, loading } = useAuth()
-  if (loading) return <div className="loading">Loading...</div>
-  if (!user || user.role !== 'admin') return <Navigate to="/dashboard" />
+  if (loading) return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', flexDirection: 'column', gap: '16px' }}>
+      <div style={{ fontSize: '48px' }}>✝</div>
+      <p style={{ color: 'var(--green)', fontSize: '16px' }}>Loading...</p>
+    </div>
+  )
+  if (!user || user.role !== 'admin') return <Navigate to="/dashboard" replace />
   return children
 }
 
 function App() {
+  const { loading } = useAuth()
+
+  if (loading) return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column', gap: '16px', background: 'var(--grey-bg)' }}>
+      <div style={{ fontSize: '64px' }}>✝</div>
+      <h2 style={{ color: 'var(--green)' }}>Sandringham Presbyterian</h2>
+      <p style={{ color: 'var(--grey-text)' }}>Loading...</p>
+    </div>
+  )
+
   return (
     <div className="app">
       <Navbar />
@@ -46,6 +61,7 @@ function App() {
         <Route path="/events" element={<ProtectedRoute><Events /></ProtectedRoute>} />
         <Route path="/prayers" element={<ProtectedRoute><Prayers /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminRoute><AdminPanel /></AdminRoute>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
   )
