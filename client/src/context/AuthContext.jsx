@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
         const profile = await api.get('/users/profile');
         setUser(profile.data.user);
       } catch {
+        // No valid refresh token - user is not logged in, that's fine
         setUser(null);
       } finally {
         setLoading(false);
@@ -31,7 +32,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await api.post('/auth/logout');
+    try {
+      await api.post('/auth/logout');
+    } catch {}
     setAccessToken(null);
     setUser(null);
   };
